@@ -1,7 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import LandingPage from './LandingPage';
+import Searched from './Searched';
 
-// test
+const App = () => {
+  const searching = useSelector((state) => state.searching);
 
-const App = () => <div>Stuff</div>;
+  if (!searching) {
+    return (
+      <LandingPage />
+    );
+  }
+  return (
+    <Searched />
+  );
+};
 
 export default App;
