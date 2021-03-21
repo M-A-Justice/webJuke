@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   searching,
-  input,
+  userInput,
+  storeSearchResults,
 } from '../actions/index';
 // import SearchIcon from '../styles/images/SearchIcon.png';
 import {
@@ -16,24 +17,26 @@ import {
 
 const LandingPage = () => {
   const dispatch = useDispatch();
-  const userInput = useSelector((state) => state.input);
+  const userStateInput = useSelector((state) => state.userInput);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('/search', {
-      data: userInput,
+      data: userStateInput,
     })
       .then((response) => {
-        console.log(response.data);
+        // put response in state
+        const { items } = response.data;
+        dispatch(storeSearchResults(items));
+        dispatch(searching());
       })
       .catch((error) => {
         throw new Error(error);
       });
-    dispatch(searching());
   };
 
   const handleChange = (e) => {
-    dispatch(input(e.target.value));
+    dispatch(userInput(e.target.value));
   };
 
   return (
