@@ -5,6 +5,7 @@ import {
   searching,
   userInput,
   storeSearchResults,
+  // storePageTokens,
 } from '../actions/index';
 // import SearchIcon from '../styles/images/SearchIcon.png';
 import {

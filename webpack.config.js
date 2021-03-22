@@ -1,3 +1,4 @@
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -15,15 +16,20 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        exclude: /node_modules/,
-        use: {
-          loader: 'file-loader',
-        },
-      },
+      // {
+      //   test: /\.(jpe?g|png|gif|ico)$/i,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'file-loader?name=[name].[ext]',
+      //   },
+      // },
     ],
   },
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     favicon: 'src/images/favicon-16x16.png',
+  //   }),
+  // ],
   mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx'],

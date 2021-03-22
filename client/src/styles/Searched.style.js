@@ -65,9 +65,9 @@ export const SearchIcon = styled(Search)`
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.25));
 `;
 
-export const SearchResults = styled.div`
-  background-color: #F7F7FF;
-`;
+// export const SearchResults = styled.ul`
+//   background-color: #F7F7FF;
+// `;
 
 export const Pagination = styled.div`
   background-color: #F7F7FF;

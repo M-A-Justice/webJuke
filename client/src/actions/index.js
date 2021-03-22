@@ -18,3 +18,10 @@ export const storeSearchResults = (data) => {
     payload: data,
   };
 };
+
+// export const storePageTokens = (data) => {
+//   return {
+//     type: 'PAGE_TOKENS',
+//     payload: data,
+//   };
+// };

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   Container,
@@ -7,13 +8,14 @@ import {
   SearchInput,
   SearchSubmit,
   SearchIcon,
-  SearchResults,
   Pagination,
 } from '../styles/Searched.style';
-import { userInput } from '../actions/index';
+import SearchResults from './SearchResults';
+import { userInput, storeSearchResults } from '../actions/index';
 
 const Searched = () => {
   const dispatch = useDispatch();
+  const userStateInput = useSelector((state) => state.userInput);
   const searchResults = useSelector((state) => state.searchResults);
 
   const handleChange = (e) => {
@@ -22,6 +24,16 @@ const Searched = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios.post('/search', {
+      data: userStateInput,
+    })
+      .then((response) => {
+        const { items } = response.data;
+        dispatch(storeSearchResults(items));
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
   };
 
   return (
@@ -34,9 +46,7 @@ const Searched = () => {
           </SearchSubmit>
         </SearchBar>
       </Header>
-      <SearchResults>
-        Stuff goes here
-      </SearchResults>
+      <SearchResults props={searchResults} />
       <Pagination>
         Page stuff goes here
       </Pagination>
