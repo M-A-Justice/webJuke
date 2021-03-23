@@ -20,8 +20,7 @@ app.post('/search', (req, res) => {
     params: {
       key: YOUTUBE_API,
       type: 'video',
-      part:
-        'snippet',
+      part: 'snippet',
       maxResults: 10,
       videoEmbeddable: true,
       q: data.userInput,

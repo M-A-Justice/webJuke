@@ -1,6 +1,17 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import SearchResultListItem from '../styles/SearchResultItem.style';
+import {
+  SearchResultListItem,
+  ResultItemContainer,
+  ResultImageContainer,
+  ResultImage,
+  ResultInfoContainer,
+  ResultInfoLeft,
+  ResultInfoRight,
+  QueueButtonContainer,
+  QueueButton,
+  QueueButtonIcon,
+} from '../styles/SearchResultItem.style';
 
 const SearchResultItem = ({ result }) => {
   // const { videoId } = result.id;
@@ -8,7 +19,22 @@ const SearchResultItem = ({ result }) => {
 
   return (
     <SearchResultListItem>
-      {title}
+      <ResultItemContainer href="#">
+        <ResultImageContainer>
+          <ResultImage />
+        </ResultImageContainer>
+        <ResultInfoContainer>
+          <ResultInfoLeft>
+            {title}
+          </ResultInfoLeft>
+          <ResultInfoRight />
+        </ResultInfoContainer>
+        <QueueButtonContainer>
+          <QueueButton>
+            <QueueButtonIcon />
+          </QueueButton>
+        </QueueButtonContainer>
+      </ResultItemContainer>
     </SearchResultListItem>
   );
 };
