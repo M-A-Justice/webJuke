@@ -19,6 +19,19 @@ export const storeSearchResults = (data) => {
   };
 };
 
+export const showModal = () => {
+  return {
+    type: 'SHOW_MODAL',
+  };
+};
+
+export const addToQueue = (data) => {
+  return {
+    type: 'ADD_TO_QUEUE',
+    payload: data,
+  };
+};
+
 // export const storePageTokens = (data) => {
 //   return {
 //     type: 'PAGE_TOKENS',

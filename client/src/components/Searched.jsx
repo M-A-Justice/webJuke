@@ -11,6 +11,7 @@ import {
   Pagination,
 } from '../styles/Searched.style';
 import SearchResults from './SearchResults';
+import Modal from './Modal';
 import { userInput, storeSearchResults } from '../actions/index';
 
 const Searched = () => {
@@ -45,10 +46,11 @@ const Searched = () => {
             <SearchIcon onClick={handleSubmit} />
           </SearchSubmit>
         </SearchBar>
+        <Modal />
       </Header>
       <SearchResults props={searchResults} />
       <Pagination>
-        Page stuff goes here
+        Pagination stuff goes here
       </Pagination>
     </Container>
   );

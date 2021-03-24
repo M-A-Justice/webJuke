@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.post('/search', (req, res) => {
   const { data } = req.body;
+  const videoIds = [];
   axios({
     method: 'get',
     baseURL: 'https://www.googleapis.com/youtube/v3/search',
@@ -27,8 +28,38 @@ app.post('/search', (req, res) => {
     },
   })
     .then((response) => {
+      const { items } = response.data;
+      console.log(response.data);
+
+      items.forEach((item) => {
+        const { videoId } = item.id;
+        videoIds.push(videoId);
+      });
       res.status(200).send(response.data);
     })
+    // .then(() => {
+    //   axios({
+    //     method: 'get',
+    //     baseURL: 'https://www.googleapis.com/youtube/v3/videos',
+    //     params: {
+    //       key: YOUTUBE_API,
+    //       part: [
+    //         'snippet',
+    //         'contentDetails',
+    //         'player',
+    //       ],
+    //       id: videoIds,
+    //       maxResults: 10,
+    //     },
+    //   })
+    //     .then((videoData) => {
+    //       console.log(videoData.data);
+    //       // res.status(200).send(response.data);
+    //     })
+    //     .catch((error) => {
+    //       res.status(500).send(error);
+    //     });
+    // })
     .catch((error) => {
       res.status(500).send(error);
     });

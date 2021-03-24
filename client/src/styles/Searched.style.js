@@ -3,7 +3,7 @@ import { Search } from '@styled-icons/boxicons-regular';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 2fr 7fr 1fr;
+  grid-template-rows: 3fr 10fr 2fr;
   height: 100%;
 `;
 
@@ -24,9 +24,9 @@ export const SearchBar = styled.form`
   border: 4px solid #577399;
   border-radius: 15px;
   width: 25%;
-  height: 22%;
+  height: 30%;
   min-width: 205px;
-  min-height: 20px;
+  min-height: 30px;
   filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.25));
 `;
 
