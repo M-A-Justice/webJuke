@@ -29,7 +29,6 @@ app.post('/search', (req, res) => {
   })
     .then((response) => {
       const { items } = response.data;
-      console.log(response.data);
 
       items.forEach((item) => {
         const { videoId } = item.id;

@@ -6,9 +6,9 @@ export const userInput = (data) => {
   };
 };
 
-export const searching = () => {
+export const initSearch = () => {
   return {
-    type: 'SEARCHING',
+    type: 'INIT_SEARCH',
   };
 };
 
