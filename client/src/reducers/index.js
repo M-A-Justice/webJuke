@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import searchingReducer from './searching';
+import initSearchReducer from './initSearch';
 import inputReducer from './inputting';
 import searchResultsReducer from './searchResults';
 // import pageTokensReducer from './pageTokens';
@@ -8,7 +8,7 @@ import addToQueueReducer from './addToQueue';
 
 const allReducers = combineReducers({
   userInput: inputReducer,
-  searching: searchingReducer,
+  initSearch: initSearchReducer,
   searchResults: searchResultsReducer,
   // pageTokens: pageTokensReducer,
   showModal: showModalReducer,

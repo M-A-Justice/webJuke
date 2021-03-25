@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Close } from '@styled-icons/evaicons-solid/';
 
 export const ModalBackdrop = styled.div`
   display: flex;
@@ -16,4 +17,20 @@ export const ModalBody = styled.div`
   width: 67%;
   background-color: #F7F7FF;
   margin-top: 40%;
+`;
+
+export const ModalHeader = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  height: 9%;
+`;
+
+export const ModalCloseContainer = styled.a`
+  text-decoration: none;
+  height: 100%
+`;
+
+export const ModalClose = styled(Close)`
+  color: #577399;
+  height: 100%;
 `;

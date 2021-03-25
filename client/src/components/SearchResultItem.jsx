@@ -23,10 +23,9 @@ const SearchResultItem = ({ result }) => {
 
   const handleShowModal = (e) => {
     const exclude = e.target.className;
-    if (typeof exclude !== 'object') {
-      if (!exclude.includes('dont-display')) {
-        dispatch(showModal());
-      }
+
+    if (!JSON.stringify(exclude).includes('dont-display')) {
+      dispatch(showModal());
     }
   };
 

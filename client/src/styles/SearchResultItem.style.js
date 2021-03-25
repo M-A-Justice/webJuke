@@ -28,8 +28,8 @@ export const ResultImageContainer = styled.div`
 
 export const ResultImage = styled.div`
   background-color: white;
-  height: 90%;
-  width: 90%;
+  height: 85%;
+  width: 85%;
 `;
 
 export const ResultInfoContainer = styled.div`
