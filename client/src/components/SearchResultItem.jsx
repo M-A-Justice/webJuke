@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   SearchResultListItem,
   ResultItemContainer,
@@ -14,23 +14,25 @@ import {
   QueueButtonIcon,
 } from '../styles/SearchResultItem.style';
 
-import { showModal, addToQueue } from '../actions/index';
+import { showModal, addToQueue, isActive } from '../actions/index';
 
 const SearchResultItem = ({ result }) => {
   const dispatch = useDispatch();
+  const queue = useSelector((state) => state.queue);
+  // const activeQueue = useSelector((state) => state.isActive);
   const { videoId } = result.id;
   const { title } = result.snippet;
 
-  const handleShowModal = (e) => {
-    const exclude = e.target.className;
-
-    if (!JSON.stringify(exclude).includes('dont-display')) {
-      dispatch(showModal());
-    }
+  const handleShowModal = () => {
+    dispatch(showModal());
   };
 
   const addIdToQueue = () => {
+    dispatch(showModal());
     dispatch(addToQueue(videoId));
+    if (queue.length === 0) {
+      dispatch(isActive());
+    }
   };
 
   return (

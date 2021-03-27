@@ -6,6 +6,7 @@ import {
   initSearch,
   storeSearchResults,
   userInput,
+  isActive,
 } from '../actions/index';
 import {
   Header,
@@ -20,6 +21,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const userStateInput = useSelector((state) => state.userInput);
   const init = useSelector((state) => state.initSearch);
+  const queue = useSelector((state) => state.queue);
 
   const placeholderContent = ['Nothing is playing! Play some tunes!', 'Search...'];
 
@@ -29,6 +31,10 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const input = e.target.children[0];
+    if (input.value.length === 0) {
+      return;
+    }
     axios.post('/search', {
       data: userStateInput,
     })
@@ -42,6 +48,11 @@ const SearchBar = () => {
       .catch((error) => {
         throw new Error(error);
       });
+    input.value = '';
+    dispatch(userInput(''));
+    if (queue.length > 0) {
+      dispatch(isActive());
+    }
   };
 
   return (

@@ -32,6 +32,30 @@ export const addToQueue = (data) => {
   };
 };
 
+// export const isPlaying = () => {
+//   return {
+//     type: 'IS_PLAYING',
+//   };
+// };
+
+export const isActive = () => {
+  return {
+    type: 'IS_ACTIVE',
+  };
+};
+
+export const activeSearch = () => {
+  return {
+    type: 'ACTIVE_SEARCH',
+  };
+};
+
+export const displayQueue = () => {
+  return {
+    type: 'DISPLAY_QUEUE',
+  };
+};
+
 // export const storePageTokens = (data) => {
 //   return {
 //     type: 'PAGE_TOKENS',

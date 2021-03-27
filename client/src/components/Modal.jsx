@@ -18,11 +18,17 @@ const Modal = () => {
     const { className } = e.target;
 
     if (typeof className === 'object') {
-      if (target.getAttribute('data-name').includes('close')) {
+      if (target.getAttribute('data-name') === null) {
+        if (target.nodeName === 'svg') {
+          dispatch(showModal());
+        }
+      } else if (target.getAttribute('data-name').includes('close')) {
         dispatch(showModal());
       }
-    } else if (className.includes('close')) {
-      dispatch(showModal());
+    } else if (typeof className === 'string') {
+      if (className.includes('close')) {
+        dispatch(showModal());
+      }
     }
   };
 
@@ -31,8 +37,8 @@ const Modal = () => {
       <ModalBackdrop onClick={handleClick} className="close">
         <ModalBody>
           <ModalHeader>
-            <ModalCloseContainer onClick={handleClick} className="close" href="#">
-              <ModalClose onClick={handleClick} className="close" />
+            <ModalCloseContainer className="close" href="#">
+              <ModalClose className="close" />
             </ModalCloseContainer>
           </ModalHeader>
         </ModalBody>

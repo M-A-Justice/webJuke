@@ -18,6 +18,7 @@ export const ResultItemContainer = styled.a`
   box-shadow: 3px 3px 4px rgb(0 0 0 / 25%);
   text-decoration: none;
   color: #F7F7FF;
+  min-height: 80px;
 `;
 
 export const ResultImageContainer = styled.div`
@@ -62,5 +63,5 @@ export const QueueButton = styled.button`
 
 export const QueueButtonIcon = styled(Plus)`
   color: #577399;
-  height: 5vh;
+  height: 3vmax;
 `;
