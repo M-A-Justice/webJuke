@@ -20,7 +20,7 @@ const App = () => {
   const activeQueue = useSelector((state) => state.isActive);
   const activelySearching = useSelector((state) => state.activeSearch);
 
-  const displayPlayer = activeQueue && !activelySearching;
+  const displayPlayerInfo = activeQueue && !activelySearching;
 
   // PROBLEM: Allow user to search while music is still playing in the background
 
@@ -34,8 +34,8 @@ const App = () => {
   return (
     <Container init={init}>
       <SearchBar />
-      {displayPlayer ? <PlayerInfo /> : <SearchResults props={searchResults} />}
-      {displayPlayer ? <PlayerControls /> : <Pagination />}
+      {displayPlayerInfo ? <PlayerInfo /> : <SearchResults searchResults={searchResults} />}
+      {displayPlayerInfo ? <PlayerControls /> : <Pagination />}
       {activeQueue ? <Player /> : <NoDisplay />}
     </Container>
   );

@@ -14,11 +14,18 @@ import {
   QueueButtonIcon,
 } from '../styles/SearchResultItem.style';
 
-import { showModal, addToQueue, isActive } from '../actions/index';
+import {
+  showModal,
+  addToQueue,
+  isActive,
+  activeSearch,
+  isPlaying,
+} from '../actions/index';
 
 const SearchResultItem = ({ result }) => {
   const dispatch = useDispatch();
   const queue = useSelector((state) => state.queue);
+  const isActiveQueue = useSelector((state) => state.isActive);
   // const activeQueue = useSelector((state) => state.isActive);
   const { videoId } = result.id;
   const { title } = result.snippet;
@@ -32,6 +39,9 @@ const SearchResultItem = ({ result }) => {
     dispatch(addToQueue(videoId));
     if (queue.length === 0) {
       dispatch(isActive());
+      dispatch(isPlaying());
+    } else if (isActiveQueue) {
+      dispatch(activeSearch());
     }
   };
 

@@ -24,7 +24,7 @@ app.post('/search', (req, res) => {
       part: 'snippet',
       maxResults: 10,
       videoEmbeddable: true,
-      q: data.userInput,
+      q: data,
     },
   })
     .then((response) => {

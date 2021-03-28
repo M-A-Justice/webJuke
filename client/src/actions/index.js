@@ -19,6 +19,12 @@ export const storeSearchResults = (data) => {
   };
 };
 
+export const emptySearchResults = () => {
+  return {
+    type: 'REMOVE_RESULTS',
+  };
+};
+
 export const showModal = () => {
   return {
     type: 'SHOW_MODAL',
@@ -32,11 +38,11 @@ export const addToQueue = (data) => {
   };
 };
 
-// export const isPlaying = () => {
-//   return {
-//     type: 'IS_PLAYING',
-//   };
-// };
+export const isPlaying = () => {
+  return {
+    type: 'IS_PLAYING',
+  };
+};
 
 export const isActive = () => {
   return {
@@ -53,6 +59,19 @@ export const activeSearch = () => {
 export const displayQueue = () => {
   return {
     type: 'DISPLAY_QUEUE',
+  };
+};
+
+export const getDuration = (data) => {
+  return {
+    type: 'GET_DURATION',
+    payload: data,
+  };
+};
+
+export const removeFromQueue = () => {
+  return {
+    type: 'REMOVE_FROM_QUEUE',
   };
 };
 

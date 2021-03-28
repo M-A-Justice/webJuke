@@ -3,10 +3,8 @@ import React from 'react';
 import SearchResultItem from './SearchResultItem';
 import SearchResultsList from '../styles/SearchResults.style';
 
-const SearchResults = ({ props }) => {
-  const { searchResults } = props;
-
-  if (searchResults !== undefined) {
+const SearchResults = ({ searchResults }) => {
+  if (searchResults.length !== 0) {
     return (
       <SearchResultsList>
         {searchResults.map((result) => {

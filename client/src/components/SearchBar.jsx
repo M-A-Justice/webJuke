@@ -6,7 +6,7 @@ import {
   initSearch,
   storeSearchResults,
   userInput,
-  isActive,
+  activeSearch,
 } from '../actions/index';
 import {
   Header,
@@ -51,7 +51,7 @@ const SearchBar = () => {
     input.value = '';
     dispatch(userInput(''));
     if (queue.length > 0) {
-      dispatch(isActive());
+      dispatch(activeSearch());
     }
   };
 
