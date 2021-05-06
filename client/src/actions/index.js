@@ -69,6 +69,13 @@ export const getDuration = (data) => {
   };
 };
 
+export const getPlayedTime = (data) => {
+  return {
+    type: 'GET_CURRENT_TIME',
+    payload: data,
+  };
+};
+
 export const removeFromQueue = () => {
   return {
     type: 'REMOVE_FROM_QUEUE',

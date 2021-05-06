@@ -9,10 +9,6 @@ import Pagination from './Pagination';
 import Player from './Player';
 import PlayerInfo from './PlayerInfo';
 import PlayerControls from './PlayerControls';
-// import {
-//   isActive,
-//   activeSearch,
-// } from '../actions/index';
 
 const App = () => {
   const searchResults = useSelector((state) => state.searchResults);
@@ -21,15 +17,6 @@ const App = () => {
   const activelySearching = useSelector((state) => state.activeSearch);
 
   const displayPlayerInfo = activeQueue && !activelySearching;
-
-  // PROBLEM: Allow user to search while music is still playing in the background
-
-  // Possible answer: Refactor search bar styling to change based on props
-  // This solution will allow every module on the page to be swapped easily
-
-  // if queues length is greater than 0
-  // set playing in state to true
-  // if playing and not actively searching display the player and player info
 
   return (
     <Container init={init}>

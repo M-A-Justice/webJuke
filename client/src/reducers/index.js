@@ -9,7 +9,8 @@ import isPlayingReducer from './isPlaying';
 import isActiveReducer from './isActive';
 import activeSearchReducer from './activeSearch';
 import displayQueueReducer from './displayQueue';
-import getDurationReducer from './getDuration';
+import durationReducer from './getDuration';
+import currentTimeReducer from './currentPlayTime';
 
 const allReducers = combineReducers({
   userInput: inputReducer,
@@ -22,7 +23,8 @@ const allReducers = combineReducers({
   isActive: isActiveReducer,
   activeSearch: activeSearchReducer,
   displayQueue: displayQueueReducer,
-  duration: getDurationReducer,
+  duration: durationReducer,
+  currentTime: currentTimeReducer,
 });
 
 export default allReducers;

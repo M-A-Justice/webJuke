@@ -32,7 +32,7 @@ const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const input = e.target.children[0];
-    if (input.value.length === 0) {
+    if (input.value === undefined) {
       return;
     }
     axios.post('/search', {
@@ -48,6 +48,10 @@ const SearchBar = () => {
       .catch((error) => {
         throw new Error(error);
       });
+    // fix this to allow users to search again after they have
+    // been presented with search results
+    // likely fix, create a selected boolean in state to determine whether a user has selected
+    // an item from the results
     input.value = '';
     dispatch(userInput(''));
     if (queue.length > 0) {

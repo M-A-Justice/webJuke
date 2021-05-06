@@ -1,4 +1,4 @@
-const getDurationReducer = (state = 0, action) => {
+const durationReducer = (state = 0, action) => {
   switch (action.type) {
     case 'GET_DURATION':
       return action.payload;
@@ -7,4 +7,4 @@ const getDurationReducer = (state = 0, action) => {
   }
 };
 
-export default getDurationReducer;
+export default durationReducer;

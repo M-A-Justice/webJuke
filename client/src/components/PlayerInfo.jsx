@@ -3,15 +3,13 @@ import { useSelector } from 'react-redux';
 import {
   PlayerInfoContainer,
   NowPlaying,
-  Upcoming,
 } from '../styles/PlayerInfo.style';
+import Upcoming from './Upcoming';
 import NoDisplay from '../styles/NoDisplay.style';
 
-// This component needs to conditionally display the queue after the queue
-// contains 2 or more items
-
-// this should be done by displaying grid when queue should be active and flex
-// when the queue is inactive
+// This component requires a song object
+// To give this component the appropriate data I will need to refactor my queue to be
+// an array of objects rather than an array of strings/id's
 
 const PlayerInfo = () => {
   const queue = useSelector((state) => state.queue);

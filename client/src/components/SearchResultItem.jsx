@@ -27,6 +27,17 @@ const SearchResultItem = ({ result }) => {
   const queue = useSelector((state) => state.queue);
   const isActiveQueue = useSelector((state) => state.isActive);
   // const activeQueue = useSelector((state) => state.isActive);
+
+  // edit this component so that it adds an object to the queue
+  // introduce a regex expression or an algorithm to parse the true title/artist name
+
+  // first check if channel name is the same as users search.
+  // this will check if the user searched an artist.
+  // if that same string is in the title it can be removed.
+  // this will leave the song name with possibly a feature name in parenthesis
+  // and possibly parenthesis including official audio/video/music video.
+  // that can also be removed and used to display the video on the player
+
   const { videoId } = result.id;
   const { title } = result.snippet;
 

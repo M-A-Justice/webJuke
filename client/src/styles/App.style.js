@@ -5,6 +5,8 @@ const Container = styled.div`
   width: 100%;
   display: ${({ init }) => (init === false ? 'inline' : 'grid')};
   grid-template-rows: ${({ init }) => (init === false ? 'none' : '3fr 10fr 2fr')};
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
 `;
 
 export default Container;
