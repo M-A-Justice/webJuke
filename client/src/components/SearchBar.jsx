@@ -7,6 +7,7 @@ import {
   storeSearchResults,
   userInput,
   activeSearch,
+  storePageTokens,
 } from '../actions/index';
 import {
   Header,
@@ -39,8 +40,13 @@ const SearchBar = () => {
       data: userStateInput,
     })
       .then((response) => {
-        const { items } = response.data;
+        const { items, prevPageToken, nextPageToken } = response.data;
+        const tokens = {
+          prevPageToken,
+          nextPageToken,
+        };
         dispatch(storeSearchResults(items));
+        dispatch(storePageTokens(tokens));
         if (init === false) {
           dispatch(initSearch());
         }

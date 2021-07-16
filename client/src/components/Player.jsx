@@ -16,7 +16,8 @@ const Player = () => {
   const dispatch = useDispatch();
   const queue = useSelector((state) => state.queue);
   const isCurrentlyPlaying = useSelector((state) => state.isPlaying);
-  const currentSong = `https://www.youtube.com/watch?v=${queue[0]}`;
+  const videoId = typeof queue[0] === 'object' ? queue[0].id.videoId : undefined;
+  const currentSong = `https://www.youtube.com/watch?v=${videoId}`;
 
   const handleDuration = (duration) => {
     dispatch(getDuration(duration));
@@ -32,7 +33,7 @@ const Player = () => {
     }
   };
 
-  if (queue[0] === undefined) {
+  if (videoId === undefined) {
     return (
       <NoDisplay />
     );

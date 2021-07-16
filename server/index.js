@@ -14,7 +14,8 @@ app.use(express.json());
 
 app.post('/search', (req, res) => {
   const { data } = req.body;
-  const videoIds = [];
+  const searchRes = {};
+  const videos = [];
   axios({
     method: 'get',
     baseURL: 'https://www.googleapis.com/youtube/v3/search',
@@ -28,13 +29,30 @@ app.post('/search', (req, res) => {
     },
   })
     .then((response) => {
-      const { items } = response.data;
+      const { items, nextPageToken } = response.data;
+      searchRes.nextPageToken = nextPageToken;
+      searchRes.prevPageToken = response.data.prevPageToken !== undefined ? response.data.prevPageToken : '';
 
       items.forEach((item) => {
         const { videoId } = item.id;
-        videoIds.push(videoId);
+        const {
+          channelId,
+          title,
+          description,
+          channelTitle,
+        } = item.snippet;
+
+        const video = {
+          videoId,
+          channelId,
+          title,
+          description,
+          channelTitle,
+        };
+        videos.push(video);
+        searchRes.items = items;
       });
-      res.status(200).send(response.data);
+      res.status(200).send(searchRes);
     })
     // .then(() => {
     //   axios({

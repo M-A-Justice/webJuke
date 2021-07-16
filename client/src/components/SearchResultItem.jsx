@@ -26,9 +26,7 @@ const SearchResultItem = ({ result }) => {
   const dispatch = useDispatch();
   const queue = useSelector((state) => state.queue);
   const isActiveQueue = useSelector((state) => state.isActive);
-  // const activeQueue = useSelector((state) => state.isActive);
 
-  // edit this component so that it adds an object to the queue
   // introduce a regex expression or an algorithm to parse the true title/artist name
 
   // first check if channel name is the same as users search.
@@ -38,7 +36,7 @@ const SearchResultItem = ({ result }) => {
   // and possibly parenthesis including official audio/video/music video.
   // that can also be removed and used to display the video on the player
 
-  const { videoId } = result.id;
+  // const { videoId } = result.id;
   const { title } = result.snippet;
 
   const handleShowModal = () => {
@@ -47,7 +45,7 @@ const SearchResultItem = ({ result }) => {
 
   const addIdToQueue = () => {
     dispatch(showModal());
-    dispatch(addToQueue(videoId));
+    dispatch(addToQueue(result));
     if (queue.length === 0) {
       dispatch(isActive());
       dispatch(isPlaying());

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+// import { useSelector } from 'react-redux';
 import {
   ItemContainer,
   ImageContainer,
@@ -10,12 +11,13 @@ import {
 
 const QueueItem = ({ song }) => {
   const handleClick = () => {};
+  const { snippet } = song;
 
   return (
     <ItemContainer onClick={handleClick}>
       <ImageContainer />
       <InfoContainer>
-        <Song>{song}</Song>
+        <Song>{snippet.title}</Song>
         <Artist />
       </InfoContainer>
     </ItemContainer>

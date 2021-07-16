@@ -82,9 +82,9 @@ export const removeFromQueue = () => {
   };
 };
 
-// export const storePageTokens = (data) => {
-//   return {
-//     type: 'PAGE_TOKENS',
-//     payload: data,
-//   };
-// };
+export const storePageTokens = (data) => {
+  return {
+    type: 'PAGE_TOKENS',
+    payload: data,
+  };
+};

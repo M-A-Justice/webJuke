@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import initSearchReducer from './initSearch';
 import inputReducer from './inputting';
 import searchResultsReducer from './searchResults';
-// import pageTokensReducer from './pageTokens';
+import pageTokensReducer from './pageTokens';
 import showModalReducer from './showModal';
 import editQueueReducer from './editQueue';
 import isPlayingReducer from './isPlaying';
@@ -16,7 +16,7 @@ const allReducers = combineReducers({
   userInput: inputReducer,
   initSearch: initSearchReducer,
   searchResults: searchResultsReducer,
-  // pageTokens: pageTokensReducer,
+  pageTokens: pageTokensReducer,
   showModal: showModalReducer,
   queue: editQueueReducer,
   isPlaying: isPlayingReducer,

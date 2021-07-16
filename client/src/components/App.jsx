@@ -22,8 +22,8 @@ const App = () => {
     <Container init={init}>
       <SearchBar />
       {displayPlayerInfo ? <PlayerInfo /> : <SearchResults searchResults={searchResults} />}
-      {displayPlayerInfo ? <PlayerControls /> : <Pagination />}
       {activeQueue ? <Player /> : <NoDisplay />}
+      {displayPlayerInfo ? <PlayerControls /> : <Pagination />}
     </Container>
   );
 };
