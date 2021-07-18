@@ -9,7 +9,12 @@ const Queue = () => {
 
   return (
     <QueueContainer>
-      {upcoming.map((song) => <QueueItem song={song} />)}
+      {upcoming.map((song) => {
+        const { videoId } = song.id;
+        return (
+          <QueueItem key={videoId} song={song} />
+        );
+      })}
     </QueueContainer>
   );
 };

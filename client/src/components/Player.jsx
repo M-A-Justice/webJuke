@@ -5,6 +5,7 @@ import InvisiblePlayer from '../styles/Player.style';
 import NoDisplay from '../styles/NoDisplay.style';
 import {
   getDuration,
+  getPlayedTime,
   removeFromQueue,
   isActive,
   initSearch,
@@ -21,6 +22,10 @@ const Player = () => {
 
   const handleDuration = (duration) => {
     dispatch(getDuration(duration));
+  };
+
+  const handleProgress = (state) => {
+    dispatch(getPlayedTime(state));
   };
 
   const handleEnded = () => {
@@ -46,6 +51,7 @@ const Player = () => {
         height="0%"
         width="0%"
         onDuration={handleDuration}
+        onProgress={handleProgress}
         onEnded={handleEnded}
       />
     </InvisiblePlayer>
