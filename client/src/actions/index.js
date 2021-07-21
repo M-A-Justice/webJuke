@@ -88,3 +88,22 @@ export const storePageTokens = (data) => {
     payload: data,
   };
 };
+
+export const updateVolume = (data) => {
+  return {
+    type: 'UPDATE_VOLUME',
+    payload: data,
+  };
+};
+
+export const muteVolume = () => {
+  return {
+    type: 'MUTE_VOLUME',
+  };
+};
+
+export const unmuteVolume = () => {
+  return {
+    type: 'UNMUTE_VOLUME',
+  };
+};

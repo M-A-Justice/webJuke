@@ -23,6 +23,7 @@ const SearchBar = () => {
   const userStateInput = useSelector((state) => state.userInput);
   const init = useSelector((state) => state.initSearch);
   const queue = useSelector((state) => state.queue);
+  const currentlySearching = useSelector((state) => state.activeSearch);
 
   const placeholderContent = ['Nothing is playing! Play some tunes!', 'Search...'];
 
@@ -54,14 +55,14 @@ const SearchBar = () => {
       .catch((error) => {
         throw new Error(error);
       });
-    // fix this to allow users to search again after they have
-    // been presented with search results
-    // likely fix, create a selected boolean in state to determine whether a user has selected
-    // an item from the results
+
     input.value = '';
     dispatch(userInput(''));
-    if (queue.length > 0) {
-      dispatch(activeSearch());
+
+    if (!currentlySearching) {
+      if (queue.length > 0) {
+        dispatch(activeSearch());
+      }
     }
   };
 

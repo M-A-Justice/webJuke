@@ -17,6 +17,7 @@ const Player = () => {
   const dispatch = useDispatch();
   const queue = useSelector((state) => state.queue);
   const isCurrentlyPlaying = useSelector((state) => state.isPlaying);
+  const { volume } = useSelector((state) => state.volume);
   const videoId = typeof queue[0] === 'object' ? queue[0].id.videoId : undefined;
   const currentSong = `https://www.youtube.com/watch?v=${videoId}`;
 
@@ -35,6 +36,7 @@ const Player = () => {
       dispatch(emptySearchResults());
       dispatch(isPlaying());
       dispatch(initSearch());
+      dispatch(getDuration(0));
     }
   };
 
@@ -50,6 +52,7 @@ const Player = () => {
         playing={isCurrentlyPlaying}
         height="0%"
         width="0%"
+        volume={volume}
         onDuration={handleDuration}
         onProgress={handleProgress}
         onEnded={handleEnded}

@@ -11,6 +11,7 @@ import activeSearchReducer from './activeSearch';
 import displayQueueReducer from './displayQueue';
 import durationReducer from './getDuration';
 import currentTimeReducer from './currentPlayTime';
+import volumeReducer from './volumeReducer';
 
 const allReducers = combineReducers({
   userInput: inputReducer,
@@ -25,6 +26,7 @@ const allReducers = combineReducers({
   displayQueue: displayQueueReducer,
   duration: durationReducer,
   currentTime: currentTimeReducer,
+  volume: volumeReducer,
 });
 
 export default allReducers;

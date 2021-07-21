@@ -10,11 +10,18 @@ import {
   VolumeContainer,
   SliderContainer,
   Slider,
-  Play,
-  Pause,
+  Playing,
+  Paused,
+  Muted,
+  HighVolume,
+  LowVolume,
+  Silent,
+  VolumeControl,
 } from '../styles/PlayerControls.style';
 import {
   isPlaying,
+  muteVolume,
+  unmuteVolume,
 } from '../actions/index';
 
 const PlayerControls = () => {
@@ -22,6 +29,7 @@ const PlayerControls = () => {
   const duration = useSelector((state) => state.duration);
   const currentTime = useSelector((state) => state.currentTime);
   const isPlayingBool = useSelector((state) => state.isPlaying);
+  const { volume, muted } = useSelector((state) => state.volume);
   const { playedSeconds, played } = currentTime;
 
   let percentage = 0;
@@ -37,6 +45,26 @@ const PlayerControls = () => {
     dispatch(isPlaying());
   };
 
+  const handleMuteUnmute = () => {
+    if (volume === 0 && muted) {
+      dispatch(muteVolume());
+    } else {
+      dispatch(unmuteVolume());
+    }
+  };
+
+  let volumeIcon;
+
+  if (muted) {
+    volumeIcon = <Muted onClick={handleMuteUnmute} />;
+  } else if (volume === 0 && !muted) {
+    volumeIcon = <Silent onClick={handleMuteUnmute} />;
+  } else if (volume > 0 && volume <= 50 && !muted) {
+    volumeIcon = <LowVolume onClick={handleMuteUnmute} />;
+  } else if (volume > 50 && !muted) {
+    volumeIcon = <HighVolume onClick={handleMuteUnmute} />;
+  }
+
   return (
     <Audio>
       <DurationSlider>
@@ -49,9 +77,12 @@ const PlayerControls = () => {
       </DurationSlider>
       <ControlsContainer>
         <ButtonsContainer>
-          {isPlayingBool === true ? <Pause onClick={handlePlayPause} /> : <Play onClick={handlePlayPause} />}
+          {isPlayingBool === true ? <Paused onClick={handlePlayPause} /> : <Playing onClick={handlePlayPause} />}
         </ButtonsContainer>
-        <VolumeContainer />
+        <VolumeContainer>
+          {volumeIcon}
+          <VolumeControl type="range" min="0" max="1" step="any" />
+        </VolumeContainer>
       </ControlsContainer>
     </Audio>
   );
