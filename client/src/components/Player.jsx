@@ -52,7 +52,7 @@ const Player = () => {
         playing={isCurrentlyPlaying}
         height="0%"
         width="0%"
-        volume={volume}
+        volume={volume / 100}
         onDuration={handleDuration}
         onProgress={handleProgress}
         onEnded={handleEnded}
