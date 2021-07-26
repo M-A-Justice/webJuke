@@ -26,6 +26,23 @@ const slider = (played) => keyframes`
   }
 `;
 
+// This is to attempt to fix a bug where durationSlider has over 200 classes generated for it
+
+// const animation = (props) => css`
+//     ${slider(props.played)} ${Math.floor(props.duration - props.playedSeconds)}s linear
+//   `;
+
+// export const DurationSlider = styled.div.attrs(() => ({
+//   style: {
+//     animation,
+//   },
+// }))`
+//   height: 5px;
+//   width: 5px;
+//   background-color: white;
+//   animation-play-state: ${({ isPlaying }) => (isPlaying === true ? 'running' : 'paused')}
+// `;
+
 export const DurationSlider = styled.div`
   height: 5px;
   width: 5px;

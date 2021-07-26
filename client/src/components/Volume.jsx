@@ -27,7 +27,11 @@ const Volume = () => {
   };
 
   const handleChange = (event, newValue) => {
-    dispatch(updateVolume(newValue));
+    if (!muted) {
+      dispatch(updateVolume(newValue));
+    } else {
+      dispatch(updateVolume(volume));
+    }
   };
 
   let volumeIcon;
